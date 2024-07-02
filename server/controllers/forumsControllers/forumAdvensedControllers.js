@@ -63,9 +63,11 @@ const getForum = async (req, res) => {
       return {
         id: thread._id,
         title: thread.title,
-        date: thread.updatedAt,
+        date: thread.createdAt,
         userName: author.userName,
         userAvatar: author.avatar,
+        countPosts: thread.posts.length,
+        countWatch: thread.countWatch,
         lastPost: {
           userName: lastPost?.user.userName,
           userAvatar: lastPost?.user.avatar,
@@ -85,6 +87,14 @@ const getThreadById = async (req, res) => {
   const page = parseInt(req.query.page) || 1;
 
   const skip = (page - 1) * 20;
+  const thread1 = await Thread.findById(threadId)
+  if (!thread1) {
+    return res.status(404).json({ message: 'Thread not found' });
+  }
+
+  thread1.countWatch += 1;
+  await thread1.save();
+
   const thread = await Thread.findById(threadId)
     .populate({
       path: 'posts',
