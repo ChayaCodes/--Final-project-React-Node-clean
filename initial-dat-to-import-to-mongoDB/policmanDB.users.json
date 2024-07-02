@@ -1,0 +1,274 @@
+[{
+  "_id": {
+    "$oid": "65bbcaf3fe37a61482ecda12"
+  },
+  "firstName": "chaya",
+  "lastName": "kremer",
+  "userName": "multi_forum_user",
+  "email": "multi.forum@example.com",
+  "password": "hashed_password",
+  "role": "admin",
+  "forums": [
+    {
+      "$oid": "65bbc49ca1a2e86b7c407196"
+    }
+  ],
+  "avatar": "https://ui-avatars.com/api/?name=multi_forum_user&length=1&rounded=true&bold=true&background=random&size=128",
+  "createdAt": {
+    "$date": "2024-02-01T16:46:43.265Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.405Z"
+  },
+  "__v": 0,
+  "color": "rgb(237,192,149)"
+},
+{
+  "_id": {
+    "$oid": "65bbefe71dd76af36025d2a6"
+  },
+  "firstName": "chaya",
+  "lastName": "kremer",
+  "userName": "MLM",
+  "email": "chaya41182@gmail.com",
+  "password": "$2b$10$pFnJ6WgyWu6NW6BljXc8k.RIYCqTdCiNCyJ.SnEeVgf0aV3AblH6S",
+  "role": "user",
+  "forums": [],
+  "createdAt": {
+    "$date": "2024-02-01T19:24:23.219Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.405Z"
+  },
+  "__v": 0,
+  "color": "rgb(77,208,226)",
+  "avatar": "https://ui-avatars.com/api/?name=MLM&length=1&rounded=true&bold=true&background=random&size=128"
+},
+{
+  "_id": {
+    "$oid": "65bc121945e43a91e7113152"
+  },
+  "firstName": "teila",
+  "lastName": "kats",
+  "userName": "tei",
+  "email": "tei999@gmail.com",
+  "password": "$2b$10$Tib/6JWTbNBUzQHm6TWAqOH0WCPyCwQ2CB8KBZ9bBr3eASBiLEHMG",
+  "role": "user",
+  "forums": [],
+  "createdAt": {
+    "$date": "2024-02-01T21:50:17.208Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.405Z"
+  },
+  "__v": 0,
+  "color": "rgb(199,37,23)",
+  "avatar": "https://ui-avatars.com/api/?name=tei&length=1&rounded=true&bold=true&background=random&size=128"
+},
+{
+  "_id": {
+    "$oid": "65bc12aa55567c32955b2cfd"
+  },
+  "firstName": "rachel",
+  "lastName": "levi",
+  "userName": "רחל",
+  "email": "rachel777@gmail.com",
+  "password": "$2a$10$vACDBZCZQoKmrkSRobIoJ.frAPHPFpe.d7ep1TMK17xYZXBsbLnAq",
+  "role": "user",
+  "forums": [
+    {
+      "$oid": "65bcdef3c50abd88970cbf10"
+    },
+    {
+      "$oid": "65bcdf44c50abd88970cbf12"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-02-01T21:52:42.468Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.405Z"
+  },
+  "__v": 1,
+  "color": "rgb(187,80,10)",
+  "avatar": "https://ui-avatars.com/api/?name=רחל&length=1&rounded=true&bold=true&background=random&size=128"
+},
+{
+  "_id": {
+    "$oid": "65bcc1eb268e000242c71c29"
+  },
+  "firstName": "itschak",
+  "lastName": "polikman",
+  "email": "itschak123@gmail.com",
+  "password": "$2b$10$pFnJ6WgyWu6NW6BljXc8k.RIYCqTdCiNCyJ.SnEeVgf0aV3AblH6S",
+  "userName": "מנהל",
+  "role": "admin",
+  "__v": 1,
+  "avatar": "https://ui-avatars.com/api/?name=מנהל&length=1&rounded=true&bold=true&background=random&size=128",
+  "forums": [],
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.405Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65bcc38e6a107d73dd20a61d"
+  },
+  "firstName": "chaya",
+  "lastName": "kremer",
+  "userName": "itt",
+  "email": "chaya123@gmail.com",
+  "password": "$2a$10$XIUid4CQIQNSkthIHrd9zeRyEFeF6AMPklaBme8CCLbtZ9tr67TMq",
+  "role": "user",
+  "forums": [],
+  "createdAt": {
+    "$date": "2024-02-02T10:27:26.534Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.405Z"
+  },
+  "__v": 0,
+  "color": "rgb(131,180,21)",
+  "avatar": "https://ui-avatars.com/api/?name=itt&length=1&rounded=true&bold=true&background=random&size=128"
+},
+{
+  "_id": {
+    "$oid": "65bcc3edd05668f7e96afaed"
+  },
+  "firstName": "chaya",
+  "lastName": "kremer",
+  "userName": "itter",
+  "email": "chaya1234@gmail.com",
+  "password": "$2a$10$LfwM4TY.IHtE4EXgmLs9auSG/yDEyeFPtUQg3YpJzwxfznKYu6tdO",
+  "role": "user",
+  "forums": [],
+  "createdAt": {
+    "$date": "2024-02-02T10:29:01.228Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.405Z"
+  },
+  "__v": 0,
+  "color": "rgb(50,94,250)",
+  "avatar": "https://ui-avatars.com/api/?name=itter&length=1&rounded=true&bold=true&background=random&size=128"
+},
+{
+  "_id": {
+    "$oid": "65dcb45921849f05403b77cd"
+  },
+  "firstName": "chaya",
+  "lastName": "kremer",
+  "userName": "koko",
+  "email": "chaya@gmail.com",
+  "password": "$2b$10$b1TMV9rSR7ofukT7Zyvu0uGwtB0LjZJj3gL/3PPgSj5tkx8r1fvki",
+  "role": "user",
+  "forums": [],
+  "avatar": "https://ui-avatars.com/api/?name=koko&length=1&rounded=true&bold=true&background=random&size=128",
+  "createdAt": {
+    "$date": "2024-02-26T15:55:05.423Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.405Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65dcb4961614bed399bf1415"
+  },
+  "firstName": "chaya",
+  "lastName": "kremer",
+  "userName": "koko88",
+  "email": "chaya1234567@gmail.com",
+  "password": "$2b$10$bw622ehpTyn/fiiTaswmvOWuP3dDKmvRP8mddZKKtZ7I74.fo8umG",
+  "role": "user",
+  "forums": [],
+  "avatar": "https://ui-avatars.com/api/?name=koko88&length=1&rounded=true&bold=true&background=random&size=128",
+  "createdAt": {
+    "$date": "2024-02-26T15:56:06.486Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.405Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65dcb55447de8cf31e0bd65f"
+  },
+  "firstName": "chaya",
+  "lastName": "kremer",
+  "userName": "koko888",
+  "email": "chaya12345678@gmail.com",
+  "password": "$2b$10$e8j0b5RQk6Ngp9Zvwpblye605djNFtsW539izOz0jsqOtaUsOd.qK",
+  "role": "user",
+  "forums": [],
+  "avatar": "https://ui-avatars.com/api/?name=koko888&length=1&rounded=true&bold=true&background=random",
+  "createdAt": {
+    "$date": "2024-02-26T15:59:16.437Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.406Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65dcb5b991a29e62dc915cf6"
+  },
+  "firstName": "chaya",
+  "lastName": "kremer",
+  "userName": "koko8388",
+  "email": "chaya123454678@gmail.com",
+  "password": "$2b$10$aOS.qtsPY3BgqIEg9A86X.eT9Cg2KVPYbnyng1n0NOY0zaBzkfCMG",
+  "role": "user",
+  "forums": [],
+  "avatar": "https://ui-avatars.com/api/?name=koko8388&length=1&rounded=true&bold=true&background=random",
+  "createdAt": {
+    "$date": "2024-02-26T16:00:57.175Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.406Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65dcb5e99527571629fd1146"
+  },
+  "firstName": "chaya",
+  "lastName": "kremer",
+  "userName": "koko85388",
+  "email": "chaya1234545678@gmail.com",
+  "password": "$2b$10$CJb40CHYCWjKhLz/5Syg6OdeBL6148glsYT6ryAYk3f5ctUjhRM82",
+  "role": "user",
+  "forums": [],
+  "avatar": "https://ui-avatars.com/api/?name=koko85388&length=1&rounded=true&bold=true&background=random",
+  "createdAt": {
+    "$date": "2024-02-26T16:01:45.892Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:10:27.406Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65dcb71b548f3dd000bbfeb5"
+  },
+  "firstName": "chaya",
+  "lastName": "kremer",
+  "userName": "koko8856388",
+  "email": "chaya123845645678@gmail.com",
+  "password": "$2b$10$Gpvj3IxORo/rm7tYpLKEq.1xvsia1.6bvHUNDd5aXjxYxpPL2fQ42",
+  "role": "user",
+  "forums": [],
+  "avatar": "https://ui-avatars.com/api/?name=koko8856388&length=1&rounded=true&bold=true&background=random",
+  "createdAt": {
+    "$date": "2024-02-26T16:06:51.954Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-26T16:06:51.954Z"
+  },
+  "__v": 0
+}]

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FaSpinner, FaCheck } from 'react-icons/fa'; 
-import { useCreateContectMutation } from '../../app/Contect/ContectApiSlice';
+import { useCreateContectMutation } from '../../features/Contect/ContectApiSlice';
 import { Link } from 'react-router-dom';
 import MenuLink from './MenuLink';
 
