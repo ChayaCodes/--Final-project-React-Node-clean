@@ -7,6 +7,8 @@ function ContectsList() {
     data: contects, isError, error, isLoading,
   } = useGetAllContectsQuery();
 
+  
+
   if (isLoading) {
     console.log('loading...');
     return <div>Loading...</div>;
@@ -20,6 +22,8 @@ function ContectsList() {
     console.log('error', error);
     return <div>{JSON.stringify(error)}</div>;
   }
+
+  const sortedContects = [...contects].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
 
   return (
@@ -38,7 +42,7 @@ function ContectsList() {
           </tr>
         </thead>
         <tbody>
-          {contects.map((contect) => (
+          {sortedContects.map((contect) => (
             <tr key={contect._id}>
               <td>{contect.createdAt}</td>
               <td>{contect.viewed ? 'כן' : 'לא'}</td>
