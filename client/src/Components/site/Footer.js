@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaSpinner, FaCheck } from 'react-icons/fa'; 
 import { useCreateContectMutation } from '../../app/Contect/ContectApiSlice';
 import { Link } from 'react-router-dom';
@@ -11,8 +11,12 @@ function Footer() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [alert, setAlert] = useState('');
-  const [createContect, { isLoading, isSuccess, data, error}] = useCreateContectMutation();
-
+  const [createContect, { isLoading, isSuccess, isError, data, error}] = useCreateContectMutation();
+useEffect(() => {  
+    if (isError) {
+      setAlert(error.data.message);
+    }
+  }, [isError]);
   const handleSubmitContect = async (e) => {
 e.preventDefault();
     setAlert('');
