@@ -1,0 +1,151 @@
+/* * {
+  font-family: 'Heebo', sans-serif;
+} */
+
+.node-body {
+  display: table;
+  align-items: center;
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 10px 0;
+  background-color: #FAFAFA;
+  border-radius: 10px;
+
+}
+
+
+.node-icon {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 46px;
+  padding: 10px 10px 10px 0;
+}
+
+.structItem-cell-icon {
+  -webkit-text-size-adjust: 100%;
+  font: 15px / 1.4 sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  --input-border-heavy: #cbcbcb;
+  --input-border-light: #dfdfdf;
+  --swiper-theme-color: #007aff;
+  --swiper-navigation-size: 44px;
+  --kttPrimaryColor: #000000;
+  color: #141414;
+  border-collapse: collapse;
+  list-style: none;
+  box-sizing: border-box;
+  display: table-cell;
+  padding: 10px 8px;
+  vertical-align: top;
+  width: 52px;
+  position: relative;
+}
+
+.text {
+  font-size: 13px;
+}
+
+.node-main {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 10px;
+  width: 70%;
+}
+
+.node-title {
+  margin: 0;
+  padding: 0;
+  font-size: 17px;
+  font-weight: 400;
+  text-decoration: none;
+  font-weight: 600;
+  color: #000;
+}
+
+.node-extra-title {}
+
+.node-description {
+  font-size: 13px;
+  color: #505050;
+}
+
+.node-meta {
+  font-size: 13px;
+}
+
+.node-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 140px;
+  vertical-align: middle;
+  text-align: center;
+  padding: 10px 0;
+  font-size: small;
+  margin-right: 20px;
+}
+
+.node-left {
+  display: flex;
+  justify-content: right;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 30%;
+  min-width: 280px;
+  
+}
+
+.pairs {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.node-extra {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.node-extra-icon {
+  padding-left: 10px;
+  float: right;
+}
+
+.avatar {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  vertical-align: top;
+  overflow: hidden;
+  width: 30px;
+}
+
+.node-extra-row {
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  color: #8c8c8c;
+}
+
+
+.listInline {
+  list-style: none;
+  margin: 2;
+  padding: 0;
+}
+
+
+
+.username {
+  font-size: 14px;
+  color: #333;
+}

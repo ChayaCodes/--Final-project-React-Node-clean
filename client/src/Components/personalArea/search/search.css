@@ -1,0 +1,19 @@
+.search-continer-2{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+.search-continer-2 input{
+    background-color: #ffffff;
+    border: none;
+}
+
+
+.search-continer-2 input:focus{
+    outline: none;
+}
