@@ -1,7 +1,44 @@
-import { Link, TableFooter } from '@mui/material';
+import { useState } from 'react';
+import { FaSpinner, FaCheck } from 'react-icons/fa'; 
+import { useCreateContectMutation } from '../../app/Contect/ContectApiSlice';
+import { Link } from 'react-router-dom';
 import MenuLink from './MenuLink';
 
 function Footer() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [alert, setAlert] = useState('');
+  const [createContect, { isLoading, isSuccess, data, error}] = useCreateContectMutation();
+
+  const handleSubmitContect = async (e) => {
+e.preventDefault();
+    setAlert('');
+    if (firstName==='') {
+      setAlert('שם פרטי הוא שדה חובה');
+      return;
+    }
+    if (lastName==='') {
+      setAlert('שם משפחה הוא שדה חובה');
+      return;
+    }
+    if (email==='') {
+      setAlert('מייל הוא שדה חובה');
+      return;
+    }
+    if (message==='') {
+      setAlert('הודעה היא שדה חובה');
+      return;
+    }
+    try {
+      await createContect({ firstName, lastName, phone, email, message });
+    } catch (error) {
+      console.error(error);
+      // טיפול בשגיאה
+    } 
+  };
   return (
     <footer style={{
       display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#27254C', color: 'white', padding: '20px',
@@ -33,6 +70,7 @@ function Footer() {
       >
         <h5 style={{ color: 'black' }}>השאירו פרטים ואחזור אליכם</h5>
         <input
+          onChange={(e) => setFirstName(e.target.value)}
           type="text"
           placeholder="שם פרטי"
           style={{
@@ -40,6 +78,7 @@ function Footer() {
           }}
         />
         <input
+          onChange={(e) => setLastName(e.target.value)}
           type="text"
           placeholder="שם משפחה"
           style={{
@@ -47,6 +86,7 @@ function Footer() {
           }}
         />
         <input
+          onChange={(e) => setPhone(e.target.value)}
           type="text"
           placeholder="טלפון"
           style={{
@@ -54,6 +94,7 @@ function Footer() {
           }}
         />
         <input
+          onChange={(e) => setEmail(e.target.value)}
           type="email"
           placeholder="מייל"
           style={{
@@ -61,15 +102,19 @@ function Footer() {
           }}
         />
         <input
+          onChange={(e) => setMessage(e.target.value)}
           type="text"
           placeholder="הודעה"
           style={{
             border: '1px solid #23bbae', borderRadius: '5px', padding: '5px', margin: '5px', height: '40px',
           }}
         />
-<button style={{
-  backgroundColor: '#23bbae', color: 'white', border: 'none', borderRadius: '5px', padding: '10px 20px', cursor: 'pointer', fontSize: '16px',
-}}>יצחק, דבר איתי</button>      </form>
+        <p className='alert' style={{ color: 'red' }}>{alert}</p>
+        <button onClick={handleSubmitContect} disabled={isLoading} style={{
+          backgroundColor: '#23bbae', color: 'white', border: 'none', borderRadius: '5px', padding: '10px 20px', cursor: isLoading ? 'default' : 'pointer', fontSize: '16px',
+        }}>
+          {isLoading ? <FaSpinner className="spinner" /> : isSuccess ? <><FaCheck /> קיבלנו את ההודעה, נחזור אלייך</> : 'יצחק, דבר איתי'}
+        </button>     </form>
 
     </footer>
   );
