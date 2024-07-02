@@ -23,6 +23,7 @@ import EditForum from './features/forums/view/EditForum';
 import ThreadsList from './features/threads/list/threadsList';
 import UsersList from './features/users/list/UsersList';
 import ThreadPage from './Components/personalArea/community/threadPage/ThreadPage';
+import ContectList from './features/Contect/list/ContectList';
 
 
 
@@ -81,6 +82,7 @@ function App() {
                   <Route path="add" element={<h1>add user</h1>} />
                   <Route path=":id/edit" element={<h1>edit user</h1>} />
                 </Route>
+                <Route path='messages' element={<ContectList />} />
 
                 <Route path="*" element={<h1>404 not found dashboard</h1>} />
               </Route>

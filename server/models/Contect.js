@@ -9,7 +9,6 @@ const ContectSchema = new Schema({
     trim: true,
     minlength: 2,
     maxlength: 50,
-    unique: true,
   },
   lastName: {
     type: String,
@@ -36,6 +35,10 @@ const ContectSchema = new Schema({
     trim: true,
     minlength: 2,
   },
-   });
+  viewed: {
+    type: Boolean,
+    default: false,
+  },
+   }, { timestamps: true });
 
 module.exports = mongoose.model('Contect', ContectSchema);

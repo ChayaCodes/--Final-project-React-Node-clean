@@ -8,8 +8,15 @@ const contectApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: newPost,
       }),
+
+    }),
+    getAllContects: build.query({
+      query: () => ({
+        url: 'api/admin/contects',
+        method: 'GET',
+      }),
     }),
   }),
 });
 
-export const { useCreateContectMutation } = contectApiSlice;
+export const { useCreateContectMutation, useGetAllContectsQuery } = contectApiSlice;
