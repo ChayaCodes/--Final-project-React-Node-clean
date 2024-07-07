@@ -27,15 +27,15 @@ function Threads() {
 
   const onChangeSortBy = (e) => {
     const sortBy = e.target.value;
+    const threadsCopy = [...threadsList]
     if (sortBy === 'title') {
-      const sortedThreads = threadsList.sort((a, b) =>{
-
+      const sortedThreads = threadsCopy.sort((a, b) => {
         console.log("a, b: ", a, b);
-         return a.title.localeCompare(b.title)
-        });
+        return a.title.localeCompare(b.title)
+      });
       setThreadsList(sortedThreads);
     } else if (sortBy === 'date') {
-      const sortedThreads = threadsList.sort((a, b) => a.createdAt.localeCompare(b.date));
+      const sortedThreads = threadsCopy.sort((a, b) => new Date(b.date) - new Date(a.date));
       setThreadsList(sortedThreads);
     }
   }
@@ -47,22 +47,22 @@ function Threads() {
     return <div style={{ color: 'red' }}>{error && <div>{error.message}</div>}</div>;
   } if (isSuccess) {
     console.log(data);
-   
+
 
 
     return (
       <Box>
         <Button onClick={() => { window.location.href = `/personal-area/community/${forumId}/new-thread`; }}>פתיחת נושא חדש</Button>
         <ComunityHeader placeholder="חיפוש נושא" onChangeSearch={onChangeSearch} onChangeSortBy={onChangeSortBy} sortByOptions={['title', 'date']} />
-        
 
-                {threadsList &&  threadsList.map((thread) => <ThreadBox thread={thread} />)}
-                { (!threadsList || threadsList.length === 0) &&
-                 <div style={{textAlign: 'center'}}>
-                  <h2>אין עדיין נושאים בפורום "{data.name}"</h2>
-                  <Button onClick={() => { window.location.href = `/personal-area/community/${forumId}/new-thread`; }}>פתיחת נושא חדש</Button>
-                </div>}
-        
+
+        {threadsList && threadsList.map((thread) => <ThreadBox thread={thread} />)}
+        {(!threadsList || threadsList.length === 0) &&
+          <div style={{ textAlign: 'center' }}>
+            <h2>אין עדיין נושאים בפורום "{data.name}"</h2>
+            <Button onClick={() => { window.location.href = `/personal-area/community/${forumId}/new-thread`; }}>פתיחת נושא חדש</Button>
+          </div>}
+
       </Box>
     );
   }

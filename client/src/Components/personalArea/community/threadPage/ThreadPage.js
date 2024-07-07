@@ -45,11 +45,12 @@ const ThreadPage = () => {
 
     const onChangeSortBy = (e) => {
         const sortBy = e.target.value;
+        const postsCopy=[...postsList]
         if (sortBy === 'content') {
-            const sortedPosts = postsList.sort((a, b) => a.content.localeCompare(b.content));
+            const sortedPosts = postsCopy.sort((a, b) => a.content.localeCompare(b.content));
             setPostsList(sortedPosts);
         } else if (sortBy === 'date') {
-            const sortedPosts = postsList.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+            const sortedPosts = postsCopy.sort((a, b) => new Date(b.date) - new Date(a.date));
             setPostsList(sortedPosts);
         }
     }
