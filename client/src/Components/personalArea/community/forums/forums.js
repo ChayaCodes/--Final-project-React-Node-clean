@@ -11,7 +11,6 @@ function Forums() {
   const {
     data: forums, isLoading, isError, isSuccess, error,
   } = useGetForumsQuery();
-  console.log('Forums', forums);
 
   const [forumsList, setForumsList] = useState(forums);
 
@@ -40,8 +39,7 @@ function Forums() {
   if (isLoading) {
     return <div>Loading...</div>;
   } if (isError) {
-    console.log('isError: ');
-    console.log(error);
+    console.error('An error occurred:', error);
     return <div style={{ color: 'red' }}>{error && <div>{error.message}</div>}</div>;
   } if (isSuccess) {
     return <div className="forums-container">

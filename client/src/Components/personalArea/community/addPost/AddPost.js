@@ -28,12 +28,12 @@ const AddPost = ({ addPost, thread, content, setContent , setRefreshKey}) => {
             setContent('');
             setRefreshKey((oldKey) => oldKey + 1);
         } catch (error) {
-            console.log('error', error);
+            console.error('An error occurred:', error);
         }
     };
 
     if (isError) {
-        console.log('error', error);
+        console.error('An error occurred:', error);
     }
 
     return (

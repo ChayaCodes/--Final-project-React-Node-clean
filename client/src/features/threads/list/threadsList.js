@@ -28,23 +28,20 @@ function ThreadsList() {
   const { data: forums } = useGetForumsQuery();
 
   if (isLoading) {
-    console.log('loading...');
     return <div>Loading...</div>;
   }
   if (isError) {
-    console.log('error', error);
+    console.error('An error occurred while fetching threads:', error);
     return <div>{JSON.stringify(error)}</div>;
   }
 
   const handleDelete = (e) => {
     const ThreadId = e.target.id;
     deleteThread(ThreadId);
-    console.log('delete', ThreadId);
   };
 
   const handleSticky = (e) => {
     const ThreadId = e.target.id;
-    console.log('sticky', ThreadId);
     const thread = threads.find((thread) => thread._id === ThreadId);
     const updatedThread = { ...thread, stiky: !thread.stiky };
 
@@ -53,10 +50,8 @@ function ThreadsList() {
 
   const handleToggleOpen = (e) => {
     const ThreadId = e.target.id;
-    console.log('toggleOpen', ThreadId);
     const thread = threads.find((thread) => thread._id === ThreadId);
     const updatedThread = { ...thread, open: !thread.open };
-    console.log('updatedThread', updatedThread);
     updateThread(updatedThread);
   };
 

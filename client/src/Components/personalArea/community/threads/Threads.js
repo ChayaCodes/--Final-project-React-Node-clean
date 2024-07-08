@@ -30,7 +30,6 @@ function Threads() {
     if (sortBy === 'title') {
       const sortedThreads = threadsList.sort((a, b) =>{
 
-        console.log("a, b: ", a, b);
          return a.title.localeCompare(b.title)
         });
       setThreadsList(sortedThreads);
@@ -46,10 +45,6 @@ function Threads() {
   } if (isError) {
     return <div style={{ color: 'red' }}>{error && <div>{error.message}</div>}</div>;
   } if (isSuccess) {
-    console.log(data);
-   
-
-
     return (
       <Box>
         <Button onClick={() => { window.location.href = `/personal-area/community/${forumId}/new-thread`; }}>פתיחת נושא חדש</Button>

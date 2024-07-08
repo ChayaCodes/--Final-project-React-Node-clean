@@ -39,7 +39,7 @@ const getForums = async (req, res) => {
     res.json(forumsData);
 
   } catch (error) {
-    console.log(error);
+    console.error('error in getForums', error)
     res.status(500).json({ message: `Server error: ${error}` });
   }
 };
@@ -52,13 +52,9 @@ const getForum = async (req, res) => {
       return res.status(404).json({ message: 'Forum not found' });
     }
     const threads = await Promise.all(forum.threads.map(async (thread) => {
-      console.log("thread", thread);
-      console.log(" thread posts !", thread.posts);
       const author = await User.findById(thread.user);
       const lastPostId = thread.posts.length > 0 ? thread.posts[0] : null;
-      console.log("lastPostId", lastPostId)
       const lastPost = await Post.findById(lastPostId).populate('user');
-      console.log("lastPost", lastPost);
 
       return {
         id: thread._id,
@@ -77,7 +73,7 @@ const getForum = async (req, res) => {
     }));
     res.json({ id: forum._id, name: forum.name, threads });
   } catch (error) {
-    console.log(error);
+    console.error('error in getForum', error)
     res.status(500).json({ message: `Server error: ${error}` });
   }
 }
@@ -139,7 +135,6 @@ const createPost = async (req, res) => {
   const threadId = req.params.threadId;
   const { content } = req.body;
   const user = req.user;
-  console.log("create post user ", user);
 
   try {
     const thread = await Thread.findById(threadId);
@@ -151,13 +146,11 @@ const createPost = async (req, res) => {
       user: user.id,
       thread: threadId,
     });
-    console.log("post", post);
     await post.save();
     thread.posts.push(post._id);
     await thread.save();
     res.json({ message: 'Post created' });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: `Server error: ${error}`, threadId });
   }
 };

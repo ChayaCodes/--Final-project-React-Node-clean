@@ -10,16 +10,11 @@ function ContectsList() {
   
 
   if (isLoading) {
-    console.log('loading...');
     return <div>Loading...</div>;
   }
   if (isError) {
-    // Check if the error is a parsing error and handle it
-    if (error.originalStatus === 404 && error.error === "SyntaxError: Unexpected token '<'") {
-      console.log('Received HTML response. Endpoint might be incorrect or server might be misconfigured.');
-      return <div>Could not load contects. Please try again later.</div>;
-    }
-    console.log('error', error);
+    
+    console.error('An error occurred:', error);
     return <div>{JSON.stringify(error)}</div>;
   }
 

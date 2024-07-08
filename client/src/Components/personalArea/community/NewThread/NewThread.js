@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function NewThread() {
+  const forumId = useParams().id;
   const [createThread, {
     data, isLoading, isError, isSuccess, error,
   }] = useCreateThreadMutation();
@@ -17,7 +18,7 @@ function NewThread() {
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const forumId = useParams().id;
+
 
   const handleNewThread = async (event) => {
     event.preventDefault();
@@ -25,7 +26,7 @@ function NewThread() {
       const body = {
         title: title,
         description: content,
-        forum: forumId,
+        forumId: forumId,
       };
 
       await createThread(body).unwrap();

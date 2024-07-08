@@ -12,7 +12,6 @@ const PostBox = ({post, content, setContent}) => {
         setContent(`<blockquote>${post.content}</blockquote>` + content)
         window.scrollTo(0,document.body.scrollHeight);
     }
-    console.log(post)
     if (!post) return null
 
     return (

@@ -56,7 +56,6 @@ const ThreadPage = () => {
     if (isLoading) return <div>Loading...</div>;
     if (isError) return <div style={{ color: 'red' }}>{error && <div>{error.message}</div>}</div>;
   
-    console.log(data);
   return (
     <div>
       <ComunityHeader placeholder="הקלד מילת חיפוש..." onChangeSearch={onChangeSearch} onChangeSortBy={onChangeSortBy} sortByOptions={['content', 'date']} />

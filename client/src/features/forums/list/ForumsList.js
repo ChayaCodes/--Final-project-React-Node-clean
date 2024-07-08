@@ -13,23 +13,20 @@ function ForumsList() {
     data, isError: deleteError, error: deleteErrorData, isLoading: deleteLoading, isSuccess: deleteSuccess,
   }] = useDeleteForumMutation();
   if (isLoading) {
-    console.log('loading...');
     return <div>Loading...</div>;
   }
   if (isError) {
-    console.log('error', error);
+    console.error('An error occurred while fetching forums:', error);
     return <div>{JSON.stringify(error)}</div>;
   }
 
   const handleDelete = (e) => {
     const forumId = e.target.id;
     deleteForum(forumId);
-    console.log('delete', forumId);
   };
 
   const timeZone = 'Asia/Jerusalem';
-  console.log('forums');
-  console.log(forums[0]);
+
   return (
     <div className="forums-list">
       <div className="forum-list-top">

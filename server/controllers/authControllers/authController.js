@@ -4,7 +4,6 @@ const User = require('../../models/User');
 
 const login = async (req, res) => {
   const { userName, password } = req.body;
-  console.log(req.body);
   if (!userName || !password) {
     return res.status(400).json({ message: 'please enter all fields', data: req.body });
   }
