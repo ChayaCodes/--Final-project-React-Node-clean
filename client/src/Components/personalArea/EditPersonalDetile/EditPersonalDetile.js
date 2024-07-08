@@ -9,8 +9,8 @@ const EditPersonalDetails = () => {
     const { data: user, isSucces: isGetMeSuccess } = useGetMeQuery();
     const [editMe, { isSuccess: isEditMeSuccess, isError: isEditMeError, error: editMeError, isLoading: isLoadingEditMe }] = useEditMeMutation();
     const [userData, setUserData] = useState();
-    const [login, {isError: isLoginError}] = useLoginMutation();
-    const [logout] = useLogoutMutation();
+    const [login, { isError: isLoginError, error: loginError }] = useLoginMutation();
+    const [logout, { isError: isLogoutError, error: logoutError }] = useLogoutMutation();
     useEffect(() => {
         if (isGetMeSuccess) {
             setUserData(user);
@@ -18,12 +18,18 @@ const EditPersonalDetails = () => {
     }, [isGetMeSuccess]);
 
     const handleEditMe = async () => {
-        await editMe(userData);
+        const { userName: newUserName } = await editMe(userData);
     }
     useEffect(() => {
         if (isEditMeSuccess) {
+            console.log("edit sucses")
             logout();
-            login({ userName: userData.userName, password: userData.password });
+            const password = userData.newPassword ? userData.newPassword : userData.password;
+            console.log("login:", { userName: userData.userName, password: password });
+            login({ userName: userData.userName, password: password });
+        }
+        if (isEditMeError) {
+            console.log("edit error", editMeError);
         }
     }, [isEditMeSuccess, logout, login, userData]);
 
@@ -57,7 +63,7 @@ const EditPersonalDetails = () => {
                     <Grid item xs={12}>
                         <TextField
                             fullWidth
-                            id="nickname"
+                            id="username"
                             label="שם משתמש"
                             variant="outlined"
                             value={userData?.userName || ''}
@@ -97,7 +103,7 @@ const EditPersonalDetails = () => {
                             id="confirmPassword"
                             label="סיסמא חדשה (במידה ולא תרצה/י לשנות יש להשאיר ריק)"
                             variant="outlined"
-                            onChange={(e) => setUserData({ ...userData, password: e.target.value })}
+                            onChange={(e) => setUserData({ ...userData, newPassword: e.target.value })}
 
                         />
                     </Grid>
@@ -112,6 +118,8 @@ const EditPersonalDetails = () => {
                     <Grid item xs={12}>
                         <div className='error' style={{ color: 'red' }}>
                             {isEditMeError && editMeError.message}
+                            {isLoginError && loginError.message}
+                            {isLogoutError && logoutError.message}
                         </div>
                         <Button
                             fullWidth
