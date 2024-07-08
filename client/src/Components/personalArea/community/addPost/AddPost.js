@@ -17,10 +17,11 @@ const AddPost = ({ addPost, thread, content, setContent , setRefreshKey}) => {
     const [createPost, { isLoading, isError, error }] = useCreatePostMutation();
     const handleCreatePost = async (e) => {
         e.preventDefault();
-
+console.log('thread', thread);
         const post = {
             content,
             threadId: thread.id,
+            forumId: thread.forum,
         };
 
         try {

@@ -35,7 +35,7 @@ const ThreadPage = () => {
     useEffect(() => {
         if (isSuccess)
             setPostsList(data.posts);
-    }, [isSuccess]);
+    }, [isSuccess, data]);
 
     const onChangeSearch = (e) => {
         const search = e.target.value;
