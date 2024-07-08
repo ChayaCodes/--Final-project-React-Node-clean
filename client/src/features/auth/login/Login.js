@@ -33,7 +33,7 @@ const Login = () => {
   };
 
   if (isLoading) return <div>loading...</div>;
-  if (isError) console.error('An error occurred:', error);
+  if (isError) console.error('An error occurred: while login', error);
   if (isSuccess) navigate('/personal-area');
   return (
     <form className="login-container" onSubmit={handleLogin}>
@@ -75,9 +75,11 @@ const Login = () => {
       <Typography variant="body2" className="login-link">
         אין לך חשבון?
         {' '}
+        
         <Link href="/signup">הרשמה</Link>
       </Typography>
     </form>
+
 
   );
 }
