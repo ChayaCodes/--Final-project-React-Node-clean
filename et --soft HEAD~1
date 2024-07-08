@@ -1,0 +1,104 @@
+[33mcommit 7a2d41f231d24feb095e424cd5c25041fa801708[m[33m ([m[1;36mHEAD[m[33m)[m
+Merge: f9edb2d 7afeb55
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Mon Jul 8 11:57:03 2024 +0300
+
+    Merge branch 'main' of https://github.com/CHAYA41182/--Final-project-React-Node-clean into HEAD
+
+[33mcommit f9edb2d2b318d0a3fac31c3359f939a1b949a4dd[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Mon Jul 8 11:54:43 2024 +0300
+
+    fix add new post
+
+[33mcommit 7afeb55a459849dd05277951ffc2a3e6a0fa60e9[m[33m ([m[1;31morigin/main[m[33m)[m
+Merge: 6222ee6 a96c889
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Mon Jul 8 00:45:54 2024 +0300
+
+    Merge branch 'main' of https://github.com/CHAYA41182/--Final-project-React-Node-clean
+
+[33mcommit 6222ee657d6358e40e42c6f66b1f45da57a37536[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Mon Jul 8 00:45:46 2024 +0300
+
+    revert the commit of change utils to app
+
+[33mcommit b8875803d3f33fc6eac98ba965c40e81db6807fe[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Mon Jul 8 00:45:15 2024 +0300
+
+    revert the commit of change utils to app
+
+[33mcommit a96c88939e9e119fc4b0723579fad05ba105e0c0[m
+Author: 2000talya <2000talya@gmail.com>
+Date:   Sun Jul 7 21:46:49 2024 +0300
+
+    talya fix sort by bug
+
+[33mcommit 8bf978205f184ef39bc5ec4fc396b9d935b1b7f1[m[33m ([m[1;32mmain[m[33m)[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Wed Jul 3 01:09:51 2024 +0300
+
+    update readme about env
+
+[33mcommit 61f420b13c4873d06a282f8cfef66600a5524e58[m
+Merge: f7075ec ae6068b
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Wed Jul 3 00:57:27 2024 +0300
+
+    Merge branch 'main' of https://github.com/CHAYA41182/--Final-project-React-Node-clean
+
+[33mcommit f7075ecb7b6546f1bf2b39ac63f8895b3a2ef48a[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Wed Jul 3 00:57:17 2024 +0300
+
+    צריך שכל הנתונים גם השם משתמש והתאריך יהיו דינמיים
+
+[33mcommit ae6068ba337fc1dc3ec42729f3c7185512afb40b[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Wed Jul 3 00:52:45 2024 +0300
+
+    Create README.md
+
+[33mcommit de0e0351142ea779ba3b6306265b6d0c59480860[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Tue Jul 2 23:18:14 2024 +0300
+
+    sort the contects from the new
+
+[33mcommit e0e2f7dea0561599d80118e85b0a6df9b77f1eae[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Tue Jul 2 22:24:06 2024 +0300
+
+    add watch the contects in the admin area
+
+[33mcommit 4f0eec14f0e2a0a6cb0e7b7c02828f2f4bea8d35[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Tue Jul 2 21:13:33 2024 +0300
+
+    ייצוא המסד נתונים שלי כדאי שתוכלי לאתחל את המסד עם הנתונים האלה
+
+[33mcommit abce1da56938403b05f6f531ff3775ef23587804[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Tue Jul 2 20:42:38 2024 +0300
+
+    add handle errors to the footer contect
+
+[33mcommit 5f0eaa11365140cc44a747658017e54e3b796bf6[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Tue Jul 2 20:29:15 2024 +0300
+
+    chore: Add contact form functionality to Footer component
+
+[33mcommit 64e1ea6c051cb5ab2c56a639d8323fb8e6588f70[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Tue Jul 2 19:51:44 2024 +0300
+
+    add Contect option to server side
+
+[33mcommit c6d12b2a0e72eea16c8f1d244911a3f5f2cea3e5[m
+Author: chaya kremer <66823881+CHAYA41182@users.noreply.github.com>
+Date:   Tue Jul 2 19:27:48 2024 +0300
+
+    first commit
