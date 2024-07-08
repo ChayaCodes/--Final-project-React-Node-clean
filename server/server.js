@@ -32,6 +32,7 @@ app.use('/api/admin/contects', verifyJWT, require('./routes/Contect/ContectAdmin
 
 app.use('/api/forums', verifyJWT, require('./routes/forums/forumsAdvensedRoutes'));
 app.use('/api/uploads', verifyJWT, require('./routes/uploadsFiles/uploadsRoutes'));
+app.use('/api/me', verifyJWT, require('./routes/me/meRoutes'));
 
 app.use('/api/Contect', require('./routes/Contect/ContectUserRoutes'));
 app.use('/api/auth', require('./routes/auth/authRoutes'));

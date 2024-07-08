@@ -25,6 +25,7 @@ import UsersList from './features/users/list/UsersList';
 import ThreadPage from './Components/personalArea/community/threadPage/ThreadPage';
 import ContectList from './features/Contect/list/ContectList';
 import SignIn from './features/auth/SignIn/SignIn';
+import EditPersonalDetails from './Components/personalArea/EditPersonalDetile/EditPersonalDetile';
 
 
 
@@ -40,8 +41,9 @@ function App() {
             <Routes>
 
               <Route path="personal-area" element={<LayoutPersonalArea />}>
+              
                 <Route index element="" />
-                <Route path="edit" element={<h1>edit personal detile page</h1>} />
+                <Route path="edit" element={<EditPersonalDetails />} />
                 <Route path="courses" element={<h1>courses page</h1>} />
                 <Route path="tutorials" element={<h1>tutorials page</h1>} />
                 <Route path="community" element={<Forums />} />
