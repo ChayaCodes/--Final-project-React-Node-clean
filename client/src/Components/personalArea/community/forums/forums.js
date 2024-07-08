@@ -23,12 +23,11 @@ function Forums() {
 
   const onChangeSortBy = (e) => {
     const sortBy = e.target.value;
-    const forumCopy = [...forumsList]
     if (sortBy === 'name') {
-      const sortedForums = forumCopy.sort((a, b) => a.name.localeCompare(b.name,));
+      const sortedForums = forumsList.sort((a, b) => a.name.localeCompare(b.name));
       setForumsList(sortedForums);
     } else if (sortBy === 'date') {
-      const sortedForums = forumCopy.sort((a, b) => new Date(b.lastPost.date) - new Date(a.lastPost.date));
+      const sortedForums = forumsList.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
       setForumsList(sortedForums);
     }
   }

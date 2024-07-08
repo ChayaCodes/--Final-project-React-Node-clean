@@ -86,7 +86,6 @@ const getThreadById = async (req, res) => {
   const threadId = req.params.threadId;
   const page = parseInt(req.query.page) || 1;
 
-
   const skip = (page - 1) * 20;
   const thread1 = await Thread.findById(threadId)
   if (!thread1) {
@@ -128,7 +127,6 @@ const getThreadById = async (req, res) => {
   res.json({
     id: thread._id,
     title: thread.title,
-    forum: thread.forum,
     posts: posts,
     totalPages,
     userName: user.userName,

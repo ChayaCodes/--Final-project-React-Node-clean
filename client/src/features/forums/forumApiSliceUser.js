@@ -8,19 +8,22 @@ const forumsApiSliceUser = apiSlice.injectEndpoints({
     }),
     getForum: build.query({
       query: (forumId) => `api/forums/${forumId}`,
-      providesTags: ['Thread', 'Forum']
+      providesTags: { type: 'Forum', id: 'forumId' },
     }),
     getThread: build.query({
       query: (payload) => `api/forums/${payload.forumId}/${payload.threadId}`,
-      providesTags: ['Thread'],
+      providesTags: { type: 'Thread', id: 'threadId' },
     }),
     createPost: build.mutation({
       query: (post) => ({
-        url: `api/forums/${post.threadId}/posts`,
+        url: `api/forums/${post.forumId}/${post.threadId}`,
         method: 'POST',
         body: post,
       }),
-      invalidatesTags: ['Thread', 'Forum'],
+      invalidatesTags: [
+        { type: 'Thread', id: 'post.threadId' },
+        { type: 'Forum', id: 'post.forumId' },
+      ],
     }),
     updatePost: build.mutation({
       query: (post) => ({
@@ -28,14 +31,19 @@ const forumsApiSliceUser = apiSlice.injectEndpoints({
         method: 'PUT',
         body: post,
       }),
-      invalidatesTags: ['Thread', 'Forum'],
+      invalidatesTags: [
+        { type: 'Thread', id: 'post.threadId' },
+      ],
     }),
     deletePost: build.mutation({
       query: (postId) => ({
         url: `api/posts/${postId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Thread', 'Forum'],
+      invalidatesTags: [
+        { type: 'Thread', id: 'post.threadId' },
+        { type: 'Forum', id: 'post.forumId' },
+      ],
     }),
     createThread: build.mutation({
       query: (thread) => ({
@@ -43,14 +51,18 @@ const forumsApiSliceUser = apiSlice.injectEndpoints({
         method: 'POST',
         body: thread,
       }),
-      invalidatesTags: [ 'Forum' ],
+      invalidatesTags: [
+        { type: 'Forum', id: 'thread.forumId' },
+      ],
     }),
     deleteThread: build.mutation({
       query: (threadId) => ({
         url: `api/threads/${threadId}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Thread', 'Forum'],
+      invalidatesTags: [
+        { type: 'Forum', id: 'thread.forumId' },
+      ],
     }),
   }),
 });

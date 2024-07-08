@@ -35,7 +35,7 @@ const ThreadPage = () => {
     useEffect(() => {
         if (isSuccess)
             setPostsList(data.posts);
-    }, [isSuccess, data]);
+    }, [isSuccess]);
 
     const onChangeSearch = (e) => {
         const search = e.target.value;
@@ -45,12 +45,11 @@ const ThreadPage = () => {
 
     const onChangeSortBy = (e) => {
         const sortBy = e.target.value;
-        const postsCopy=[...postsList]
         if (sortBy === 'content') {
-            const sortedPosts = postsCopy.sort((a, b) => a.content.localeCompare(b.content));
+            const sortedPosts = postsList.sort((a, b) => a.content.localeCompare(b.content));
             setPostsList(sortedPosts);
         } else if (sortBy === 'date') {
-            const sortedPosts = postsCopy.sort((a, b) => new Date(b.date) - new Date(a.date));
+            const sortedPosts = postsList.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
             setPostsList(sortedPosts);
         }
     }
