@@ -111,8 +111,8 @@ const getThreadById = async (req, res) => {
         id: post._id,
         content: post.content,
         date: post.updatedAt,
-        userName: user.userName,
-        userAvatar: user.avatar,
+        userName: user ? user.userName : 'deleted user',
+        userAvatar: user ? user.avatar : 'https://ui-avatars.com/api/?name=deletd%20know&length=1&rounded=true&bold=true&background=random&size=128'
       };
     }));
 
