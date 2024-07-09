@@ -6,7 +6,7 @@ const NotFoundPage =()=> {
     return(
         <div style={{
             width: '100%',
-            height: '100%',
+            height: '100vw',
             backgroundColor: 'rgb(39, 37, 76)',
             color:'white',
             textAlign:'center',
