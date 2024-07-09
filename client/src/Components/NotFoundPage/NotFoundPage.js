@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 
 
+
 const NotFoundPage =()=> {
     return(
         <div style={{
             width: '100%',
-            height: '100vh',
+            height: '100%',
             backgroundColor: 'rgb(39, 37, 76)',
             color:'white',
             textAlign:'center',
@@ -20,10 +21,11 @@ const NotFoundPage =()=> {
                     borderTopRightRadius: 20,
                     borderBottomLeftRadius: 15,
                     borderBottomRightRadius: 20,
+                    borderStyle: 'none',
                     fontSize: 20,
                     color:'white',
                     margin: 20,
-                }}>אני רוצה לשוב הביתה -></button></Link>
+                }}>אני רוצה לשוב הביתה {'->'}</button></Link>
             </div>
         </div>
     )
