@@ -60,11 +60,11 @@ const AddPost = ({ addPost, thread, content, setContent , setRefreshKey}) => {
                                     כתבו תגובה
                                 </span></button>
                         </div>
-                        <div className="formButtonGroup-extra">
+                        {/* <div className="formButtonGroup-extra">
                             <span className="js-attachButton"><a className="button--link js-attachmentUpload button" data-accept=".zip,.txt,.pdf,.png,.jpg,.jpeg,.jpe,.gif,.doc,.docx,.ai,.psd,.rar,.avi,.mp3,.mpg,.mp4,.xls,.xlsx,.ppt,.pptx,.ind,.indd,.dwg,.idml,.ttf,.shx,.skp,.fla,.html,.webp,.skb,.3dm,.json,.sty,.otf,.i,.m4v,.mov,.mp4v,.mpeg,.ogv,.webm,.opus,.ogg,.wav" data-video-size="23552000"><span className="button-text"><FontAwesomeIcon icon={faPaperclip} /> צרף קבצים
                             </span></a><input type="file" multiple="multiple" accept=".zip,.txt,.pdf,.png,.jpg,.jpeg,.jpe,.gif,.doc,.docx,.ai,.psd,.rar,.avi,.mp3,.mpg,.mp4,.xls,.xlsx,.ppt,.pptx,.ind,.indd,.dwg,.idml,.ttf,.shx,.skp,.fla,.html,.webp,.skb,.3dm,.json,.sty,.otf,.i,.m4v,.mov,.mp4v,.mpeg,.ogv,.webm,.opus,.ogg,.wav" title="צרף קבצים" style={{ visibility: 'hidden', position: 'absolute', width: '1px', height: '1px', overflow: 'hidden', right: '-1000px' }} /></span>
 
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
