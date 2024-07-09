@@ -6,11 +6,12 @@ import { CircularProgress } from '@mui/material';
 import { useLoginMutation, useLogoutMutation } from '../../../features/auth/authApiSlice';
 
 const EditPersonalDetails = () => {
-    const { data: user, isSucces: isGetMeSuccess } = useGetMeQuery();
+    const { data: user, isSuccess: isGetMeSuccess } = useGetMeQuery();
     const [editMe, { isSuccess: isEditMeSuccess, isError: isEditMeError, error: editMeError, isLoading: isLoadingEditMe }] = useEditMeMutation();
     const [userData, setUserData] = useState();
     const [login, { isError: isLoginError, error: loginError }] = useLoginMutation();
     const [logout, { isError: isLogoutError, error: logoutError }] = useLogoutMutation();
+
     useEffect(() => {
         if (isGetMeSuccess) {
             setUserData(user);
@@ -20,6 +21,7 @@ const EditPersonalDetails = () => {
     const handleEditMe = async () => {
         const { userName: newUserName } = await editMe(userData);
     }
+
     useEffect(() => {
         if (isEditMeSuccess) {
             console.log("edit sucses")
