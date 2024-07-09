@@ -17,6 +17,7 @@ const NotFoundPage =()=> {
                 <Link to="/"><button style={{
                     backgroundColor: 'rgb(35, 187, 174)',
                     padding: 10,
+                    borderStyle: 'none',
                     borderTopRightRadius: 20,
                     borderBottomLeftRadius: 15,
                     borderBottomRightRadius: 20,
