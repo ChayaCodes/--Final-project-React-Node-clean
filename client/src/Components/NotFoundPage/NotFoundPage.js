@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 
+
 const NotFoundPage =()=> {
     return(
         <div style={{
@@ -17,13 +18,15 @@ const NotFoundPage =()=> {
                 <Link to="/"><button style={{
                     backgroundColor: 'rgb(35, 187, 174)',
                     padding: 10,
+                    borderStyle: 'none',
                     borderTopRightRadius: 20,
                     borderBottomLeftRadius: 15,
                     borderBottomRightRadius: 20,
+                    borderStyle: 'none',
                     fontSize: 20,
                     color:'white',
                     margin: 20,
-                }}>אני רוצה לשוב הביתה -></button></Link>
+                }}>אני רוצה לשוב הביתה {'->'}</button></Link>
             </div>
         </div>
     )

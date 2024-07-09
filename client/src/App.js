@@ -40,37 +40,25 @@ function App() {
         <ThemeProvider theme={theme}>
           <Router>
             <Routes>
-
+              {/* personal area routes */}
               <Route path="personal-area" element={<LayoutPersonalArea />}>
-              
                 <Route index element="" />
                 <Route path="edit" element={<EditPersonalDetails />} />
-                <Route path="courses" element={<h1>courses page</h1>} />
-                <Route path="tutorials" element={<h1>tutorials page</h1>} />
                 <Route path="community" element={<Forums />} />
                 <Route path="community/:id" element={<Treads />} />
                 <Route path="community/:forumId/:threadId" element={<ThreadPage />} />
-                
                 <Route path="community/:id/new-thread" element={<NewThread />} />
                 <Route path="community/:id/:threadId" element={<Thread />} />
-
-                <Route path="zoom" element={<h1>zoom page</h1>} />
                 <Route path="*" element={<NotFoundPage />} />
-
               </Route>
-
+              {/* site routes */}
               <Route path="/" element={<Layout />}>
-
                 <Route index element={<HomePage />} />
-                <Route path="about" element={<h1>about page</h1>} />
-                <Route path="courses" element={<h1>courses page</h1>} />
-                <Route path="tutorials" element={<h1>tutorials page</h1>} />
-                <Route path="community" element={<h1>community page</h1>} />
-                <Route path="contact" element={<h1>contact page</h1>} />
                 <Route path="login" element={<Login />} />
                 <Route path="signup" element={<SignIn />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
+              {/* dash routes */}
               <Route path="dash" element={<DashLayout />}>
                 <Route index element="" />
                 <Route path="forums" element={<Outlet />}>
@@ -78,16 +66,12 @@ function App() {
                   <Route path="add" element={<AddForum />} />
                   <Route path=":id/edit" element={<EditForum />} />
                   <Route path=":id/threads" element={<ThreadsList />} />
-
                 </Route>
                 <Route path="threads" element={<ThreadsList />} />
                 <Route path="users" element={<Outlet />}>
                   <Route index element={<UsersList />} />
-                  <Route path="add" element={<h1>add user</h1>} />
-                  <Route path=":id/edit" element={<h1>edit user</h1>} />
                 </Route>
                 <Route path='messages' element={<ContectList />} />
-
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Routes>

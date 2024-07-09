@@ -79,56 +79,61 @@ const getForum = async (req, res) => {
 }
 
 const getThreadById = async (req, res) => {
-  const threadId = req.params.threadId;
-  const page = parseInt(req.query.page) || 1;
+  try {
+    const threadId = req.params.threadId;
+    const page = parseInt(req.query.page) || 1;
 
-  const skip = (page - 1) * 20;
-  const thread1 = await Thread.findById(threadId)
-  if (!thread1) {
-    return res.status(404).json({ message: 'Thread not found' });
-  }
+    const skip = (page - 1) * 20;
+    const thread1 = await Thread.findById(threadId)
+    if (!thread1) {
+      return res.status(404).json({ message: 'Thread not found' });
+    }
 
-  thread1.countWatch += 1;
-  await thread1.save();
+    thread1.countWatch += 1;
+    await thread1.save();
 
-  const thread = await Thread.findById(threadId)
-    .populate({
-      path: 'posts',
-      options: {
-        sort: { createdAt: 1 },
-        limit: 20,
-        skip: skip
-      },
-    })
+    const thread = await Thread.findById(threadId)
+      .populate({
+        path: 'posts',
+        options: {
+          sort: { createdAt: 1 },
+          limit: 20,
+          skip: skip
+        },
+      })
 
-  if (!thread) {
-    return res.status(404).json({ message: 'Thread not found' });
-  }
-  const posts = await Promise.all(thread.posts.map(async (post) => {
-    const user = await User.findById(post.user);
-    return {
-      id: post._id,
-      content: post.content,
-      date: post.updatedAt,
+    if (!thread) {
+      return res.status(404).json({ message: 'Thread not found' });
+    }
+    const posts = await Promise.all(thread.posts.map(async (post) => {
+      const user = await User.findById(post.user);
+      return {
+        id: post._id,
+        content: post.content,
+        date: post.updatedAt,
+        userName: user ? user.userName : 'deleted user',
+        userAvatar: user ? user.avatar : 'https://ui-avatars.com/api/?name=deletd%20know&length=1&rounded=true&bold=true&background=random&size=128'
+      };
+    }));
+
+
+    const totalPosts = await Post.countDocuments({ thread: threadId });
+    const totalPages = Math.ceil(totalPosts / 20);
+    const user = await User.findById(thread.user);
+
+    res.json({
+      id: thread._id,
+      title: thread.title,
+      posts: posts,
+      totalPages,
       userName: user.userName,
       userAvatar: user.avatar,
-    };
-  }));
-
-
-  const totalPosts = await Post.countDocuments({ thread: threadId });
-  const totalPages = Math.ceil(totalPosts / 20);
-  const user = await User.findById(thread.user);
-
-  res.json({
-    id: thread._id,
-    title: thread.title,
-    posts: posts,
-    totalPages,
-    userName: user.userName,
-    userAvatar: user.avatar,
-    date: thread.createdAt,
-  });
+      date: thread.createdAt,
+    });
+  } catch (error) {
+    console.error('error in getThreadById', error)
+    res.status(500).json({ message: `Server error: ${error}` });
+  }
 };
 
 const createPost = async (req, res) => {
@@ -158,11 +163,11 @@ const createPost = async (req, res) => {
 
 const createThread = async (req, res) => {
   try {
-    const forumId = req.params.forumId; // also fixed req.param to req.params
+    const forumId = req.params.forumId; 
 
     const { title, description } = req.body;
     const user = req.user;
-    const forum = await Forum.findById(forumId); // added await here
+    const forum = await Forum.findById(forumId); 
     if (!forum) {
       return res.status(404).json({ message: 'Forum not found' });
     }
@@ -190,7 +195,7 @@ const createThread = async (req, res) => {
       forum.threads.push(thread._id);
     else
       forum.threads = [thread._id]
-    await forum.save(); 
+    await forum.save();
     res.json({ message: 'Thread created', thread });
   } catch (error) {
     res.status(500).json({ message: `Server error: ${error}` });
