@@ -12,8 +12,8 @@ const NotFoundPage =()=> {
             alignContent:'center',
         }}>
             <div>
-                <h5 style={{fontSize: 20}}>אופס.... הגעת למקום שאנחנו לא מכירים</h5>
-                <h1 style={{fontSize: 150, margin: 25}}>404</h1>
+                <h5 style={{fontSize: 20,  fontFamily: 'Futurism Regular',}}>אופס.... הגעת למקום שאנחנו לא מכירים</h5>
+                <h1 style={{fontSize: 170, fontFamily: 'Futurism Regular',}}>404</h1>
                 <Link to="/"><button style={{
                     backgroundColor: 'rgb(35, 187, 174)',
                     padding: 10,
@@ -21,7 +21,9 @@ const NotFoundPage =()=> {
                     borderBottomLeftRadius: 15,
                     borderBottomRightRadius: 20,
                     fontSize: 20,
-                }}>אני רוצה לשוב הביתה </button></Link>
+                    color:'white',
+                    margin: 20,
+                }}>אני רוצה לשוב הביתה -></button></Link>
             </div>
         </div>
     )
