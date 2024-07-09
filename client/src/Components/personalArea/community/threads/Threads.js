@@ -27,14 +27,14 @@ function Threads() {
 
   const onChangeSortBy = (e) => {
     const sortBy = e.target.value;
+    const threadsCopy = [...threadsList]
     if (sortBy === 'title') {
-      const sortedThreads = threadsList.sort((a, b) =>{
-
+      const sortedThreads = threadsCopy.sort((a, b) => {
          return a.title.localeCompare(b.title)
         });
       setThreadsList(sortedThreads);
     } else if (sortBy === 'date') {
-      const sortedThreads = threadsList.sort((a, b) => a.createdAt.localeCompare(b.date));
+      const sortedThreads = threadsCopy.sort((a, b) => new Date(b.date) - new Date(a.date));
       setThreadsList(sortedThreads);
     }
   }
