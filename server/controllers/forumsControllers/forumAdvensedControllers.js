@@ -163,11 +163,11 @@ const createPost = async (req, res) => {
 
 const createThread = async (req, res) => {
   try {
-    const forumId = req.params.forumId; // also fixed req.param to req.params
+    const forumId = req.params.forumId; 
 
     const { title, description } = req.body;
     const user = req.user;
-    const forum = await Forum.findById(forumId); // added await here
+    const forum = await Forum.findById(forumId); 
     if (!forum) {
       return res.status(404).json({ message: 'Forum not found' });
     }
