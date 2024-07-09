@@ -40,29 +40,25 @@ function App() {
         <ThemeProvider theme={theme}>
           <Router>
             <Routes>
-
+              {/* personal area routes */}
               <Route path="personal-area" element={<LayoutPersonalArea />}>
-              
                 <Route index element="" />
                 <Route path="edit" element={<EditPersonalDetails />} />
                 <Route path="community" element={<Forums />} />
                 <Route path="community/:id" element={<Treads />} />
                 <Route path="community/:forumId/:threadId" element={<ThreadPage />} />
-                
                 <Route path="community/:id/new-thread" element={<NewThread />} />
                 <Route path="community/:id/:threadId" element={<Thread />} />
-
                 <Route path="*" element={<NotFoundPage />} />
-
               </Route>
-
+              {/* site routes */}
               <Route path="/" element={<Layout />}>
-
                 <Route index element={<HomePage />} />
                 <Route path="login" element={<Login />} />
                 <Route path="signup" element={<SignIn />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
+              {/* dash routes */}
               <Route path="dash" element={<DashLayout />}>
                 <Route index element="" />
                 <Route path="forums" element={<Outlet />}>
@@ -70,14 +66,12 @@ function App() {
                   <Route path="add" element={<AddForum />} />
                   <Route path=":id/edit" element={<EditForum />} />
                   <Route path=":id/threads" element={<ThreadsList />} />
-
                 </Route>
                 <Route path="threads" element={<ThreadsList />} />
                 <Route path="users" element={<Outlet />}>
                   <Route index element={<UsersList />} />
                 </Route>
                 <Route path='messages' element={<ContectList />} />
-
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Routes>
