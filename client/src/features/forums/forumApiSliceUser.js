@@ -11,7 +11,7 @@ const forumsApiSliceUser = apiSlice.injectEndpoints({
       providesTags: ['Thread', 'Forum']
     }),
     getThread: build.query({
-      query: (payload) => `api/forums/${payload.forumId}/${payload.threadId}`,
+      query: (payload) => `api/forums/${payload.forumId}/${payload.threadId}?page=${payload.page}`,
       providesTags: ['Thread'],
     }),
     createPost: build.mutation({
