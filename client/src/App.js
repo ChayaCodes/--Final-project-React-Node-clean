@@ -26,6 +26,7 @@ import ThreadPage from './Components/personalArea/community/threadPage/ThreadPag
 import ContectList from './features/Contect/list/ContectList';
 import SignIn from './features/auth/SignIn/SignIn';
 import EditPersonalDetails from './Components/personalArea/EditPersonalDetile/EditPersonalDetile';
+import NotFoundPage from './Components/NotFoundPage/NotFoundPage';
 
 
 
@@ -54,7 +55,7 @@ function App() {
                 <Route path="community/:id/:threadId" element={<Thread />} />
 
                 <Route path="zoom" element={<h1>zoom page</h1>} />
-                <Route path="*" element={<h1>404 not found</h1>} />
+                <Route path="*" element={<NotFoundPage />} />
 
               </Route>
 
@@ -68,7 +69,7 @@ function App() {
                 <Route path="contact" element={<h1>contact page</h1>} />
                 <Route path="login" element={<Login />} />
                 <Route path="signup" element={<SignIn />} />
-                <Route path="*" element={<h1>404 not found</h1>} />
+                <Route path="*" element={<NotFoundPage />} />
               </Route>
               <Route path="dash" element={<DashLayout />}>
                 <Route index element="" />
@@ -87,7 +88,7 @@ function App() {
                 </Route>
                 <Route path='messages' element={<ContectList />} />
 
-                <Route path="*" element={<h1>404 not found dashboard</h1>} />
+                <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Routes>
           </Router>
