@@ -55,7 +55,7 @@ const AddPost = ({ addPost, thread, content, setContent , setRefreshKey}) => {
                     <div className="formButtonGroup ">
                         <div className="formButtonGroup-primary">
                             <button onClick={handleCreatePost
-                            } type="submit" className="button--primary button "><span className="button-text">
+                            } type="submit" className="button--primary button add-post-btn"><span className="button-text">
                                     <FontAwesomeIcon icon={faReply} />
                                     כתבו תגובה
                                 </span></button>
