@@ -58,7 +58,7 @@ function ThreadsList() {
   const timeZone = 'Asia/Jerusalem';
 
   // get the title of the forum
-  const forum = forums.find((forum) => forum._id === forumId);
+  const forum = forums ? forums.find((forum) => forum._id === forumId) : null;
   const forumTitle = forum.name;
 
   return (
