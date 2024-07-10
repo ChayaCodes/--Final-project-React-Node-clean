@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const getMe = async (req, res) => {
     try {
         const user = await User.findById(req.user.id).lean();
+        user.password = undefined;
         res.json(user);
     }
     catch (err) {
@@ -18,13 +19,15 @@ const editMe = async (req, res) => {
         console.log(userName, email, password, firstName, lastName)
         if (userName) updatedUser.userName = userName;
         if (email) updatedUser.email = email;
-        // decode the password
-        if (password && newPassword && bcrypt.compareSync(password, updatedUser.password)) {
+        if(!password || !await bcrypt.compare(password, updatedUser.password)){ 
+            return res.status(400).json({ message: "Password is incorrect." });
+        }
+        if (newPassword ) {
             if (newPassword.trim().length > 0) {
                 const hashedPassword = await bcrypt.hash(newPassword, 10);
                 updatedUser.password = hashedPassword;
             } else {
-                return res.status(400).json({ message: "New password is required." });
+                return res.status(400).json({ message: "New password is not valid." });
             }
         } 
         if (firstName) updatedUser.firstName = firstName;

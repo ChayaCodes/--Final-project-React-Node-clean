@@ -7,10 +7,31 @@ import { useLoginMutation, useLogoutMutation } from '../../../features/auth/auth
 
 const EditPersonalDetails = () => {
     const { data: user, isSuccess: isGetMeSuccess } = useGetMeQuery();
-    const [editMe, { isSuccess: isEditMeSuccess, isError: isEditMeError, error: editMeError, isLoading: isLoadingEditMe }] = useEditMeMutation();
+    const [editMe, { data:resEdit, isSuccess: isEditMeSuccess, isError: isEditMeError, error: editMeError, isLoading: isLoadingEditMe }] = useEditMeMutation();
     const [userData, setUserData] = useState();
     const [login, { isError: isLoginError, error: loginError }] = useLoginMutation();
     const [logout, { isError: isLogoutError, error: logoutError }] = useLogoutMutation();
+    const [validationMessage, setValidationMessage] = useState('');
+
+    function validateForm() {
+        setValidationMessage('');
+        if(!userData) return false;
+        // בדיקה אם כל השדות החובה מלאים (הנחה שיש שדה חובה אחד או יותר)
+        if (!userData.password || userData.password.trim() === '') {
+            console.log("userData.password:", userData.password)
+            setValidationMessage("יש למלא את כל השדות החובה.");
+            return false;
+        }
+    
+        // בדיקה אם הסיסמאות תואמות, במידה והשדה של הסיסמה החדשה לא ריק
+        if (userData.newPassword && userData.newPassword !== userData.confirmNewPassword) {
+            setValidationMessage("הסיסמאות אינן תואמות.");
+            return false;
+        }
+    
+        // אם הגענו לכאן, הטופס תקין
+        return true;
+    }
 
     useEffect(() => {
         if (isGetMeSuccess) {
@@ -19,21 +40,23 @@ const EditPersonalDetails = () => {
     }, [isGetMeSuccess]);
 
     const handleEditMe = async () => {
-        const { userName: newUserName } = await editMe(userData);
+        if (validateForm()) {
+            await editMe(userData);
+        }
     }
 
     useEffect(() => {
         if (isEditMeSuccess) {
-            console.log("edit sucses")
-            logout();
+            console.log("resEdit", resEdit )
             const password = userData.newPassword ? userData.newPassword : userData.password;
-            console.log("login:", { userName: userData.userName, password: password });
+            console.log("login", userData.userName, password);
             login({ userName: userData.userName, password: password });
         }
         if (isEditMeError) {
             console.log("edit error", editMeError);
+            setValidationMessage(editMeError.data.message);
         }
-    }, [isEditMeSuccess, logout, login, userData]);
+    }, [isEditMeSuccess]);
 
     return (
         <Container maxWidth="sm">
@@ -115,6 +138,7 @@ const EditPersonalDetails = () => {
                             id="comments"
                             label="יש לאשר את הסיסמא החדשה"
                             variant="outlined"
+                            onChange={(e) => setUserData({ ...userData, confirmNewPassword: e.target.value })}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -122,6 +146,8 @@ const EditPersonalDetails = () => {
                             {isEditMeError && editMeError.message}
                             {isLoginError && loginError.message}
                             {isLogoutError && logoutError.message}
+                            {validationMessage}
+
                         </div>
                         <Button
                             fullWidth
