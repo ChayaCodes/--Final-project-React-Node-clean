@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/admin/users', verifyJWT, require('./routes/users/usersAdminRoutes'));
-app.use('/api/admin/forums', verifyAdmin, require('./routes/forums/forumsAdminRoutes'));
+app.use('/api/admin/forums', verifyJWT, require('./routes/forums/forumsAdminRoutes'));
 app.use('/api/admin/threads', verifyJWT, require('./routes/threads/threadsAdminRoutes'));
 app.use('/api/admin/posts', verifyJWT, require('./routes/posts/postsAdminRoutes'));
 app.use('/api/admin/contects', verifyJWT, require('./routes/Contect/ContectAdminRoutes'));

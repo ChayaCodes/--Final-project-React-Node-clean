@@ -26,7 +26,6 @@ function ForumsList() {
   };
 
   const timeZone = 'Asia/Jerusalem';
-
   return (
     <div className="forums-list">
       <div className="forum-list-top">
@@ -47,7 +46,7 @@ function ForumsList() {
         </thead>
         <tbody>
           {forums.map((forum) => (
-            <tr key={forum._id}>
+            <tr key={forum.id}>
               <td>{forum.name}</td>
               <td>{forum.description}</td>
 
@@ -58,12 +57,12 @@ function ForumsList() {
 
               </td>
               <td className="forums-list-btns">
-                <Link className="forum-list-link" to={`/dash/forums/${forum._id}/users`}>משתמשים</Link>
-                <Link className="forum-list-link" to={`/dash/forums/${forum._id}/threads`}>נושאים</Link>
+                <Link className="forum-list-link" to={`/dash/forums/${forum.id}/users`}>משתמשים</Link>
+                <Link className="forum-list-link" to={`/dash/forums/${forum.id}/threads`}>נושאים</Link>
               </td>
               <td className="forums-list-btns">
-                <Link className="forums-list-btn edit" to={`/dash/forums/${forum._id}/edit`}>ערוך</Link>
-                <span className="forums-list-btn delete" to={`/dash/forums/${forum._id}/delete`} onClick={handleDelete} id={forum._id}>מחק</span>
+                <Link className="forums-list-btn edit" to={`/dash/forums/${forum.id}/edit`}>ערוך</Link>
+                <span className="forums-list-btn delete" to={`/dash/forums/${forum.id}/delete`} onClick={handleDelete} id={forum.id}>מחק</span>
               </td>
             </tr>
           ))}
