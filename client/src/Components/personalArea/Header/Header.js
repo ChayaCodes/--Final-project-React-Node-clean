@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from '@mui/material';
 import { IconButton, Badge } from '@mui/material';
@@ -19,6 +19,9 @@ function Header({setIsSidebarOpen, isSidebarOpen}) {
   const userName = user ? user.userName : 'אורח';
 
   const isMobile = useMediaQuery('(max-width:600px)');
+
+  const avatar = user.avatar;
+  
 
   if (isMobile) {
     return (
@@ -51,7 +54,11 @@ function Header({setIsSidebarOpen, isSidebarOpen}) {
       </div>
       <div className='btns'>
         <div className='userBox'>
-          <FontAwesomeIcon icon={faUserCircle} style={{ marginLeft: '5px' }} />
+          {avatar ? (
+            <img src={avatar} alt="Avatar" style={{ marginLeft: '5px',  width: '18px', height: '18px'}} />
+          ) : (
+            <FontAwesomeIcon icon={faUserCircle} style={{ marginLeft: '5px' }} />
+          )}
           {`היי ${userName}`}
         </div>
       </div>

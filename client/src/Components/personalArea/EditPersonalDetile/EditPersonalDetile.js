@@ -4,6 +4,7 @@ import { useGetMeQuery, useEditMeMutation } from '../../../features/me/meApiSlic
 import { useState } from 'react';
 import { CircularProgress } from '@mui/material';
 import { useLoginMutation, useLogoutMutation } from '../../../features/auth/authApiSlice';
+import UploadImage from './UploadImage/UploadImage';
 
 const EditPersonalDetails = () => {
     const { data: user, isSuccess: isGetMeSuccess } = useGetMeQuery();
@@ -60,6 +61,7 @@ const EditPersonalDetails = () => {
 
     return (
         <Container maxWidth="sm">
+        <UploadImage /> 
             <Box component="form" noValidate autoComplete="off">
                 <Typography variant="h5" align="center" gutterBottom>
                     עריכת פרטים אישיים
