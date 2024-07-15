@@ -61,7 +61,7 @@ const EditPersonalDetails = () => {
 
     return (
         <Container maxWidth="sm">
-        <UploadImage /> 
+        <UploadImage initialImage={userData? userData : null}/> 
             <Box component="form" noValidate autoComplete="off">
                 <Typography variant="h5" align="center" gutterBottom>
                     עריכת פרטים אישיים

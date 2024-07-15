@@ -20,7 +20,7 @@ function Header({setIsSidebarOpen, isSidebarOpen}) {
 
   const isMobile = useMediaQuery('(max-width:600px)');
 
-  const avatar = user.avatar;
+  const avatar = user? user.avatar : null;
   
 
   if (isMobile) {
