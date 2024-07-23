@@ -54,11 +54,7 @@ function Header({setIsSidebarOpen, isSidebarOpen}) {
       </div>
       <div className='btns'>
         <div className='userBox'>
-          {avatar ? (
-            <img src={avatar} alt="Avatar" style={{ marginLeft: '5px',  width: '18px', height: '18px'}} />
-          ) : (
-            <FontAwesomeIcon icon={faUserCircle} style={{ marginLeft: '5px' }} />
-          )}
+         <FontAwesomeIcon icon={faUserCircle} style={{ marginLeft: '5px' }} />
           {`היי ${userName}`}
         </div>
       </div>
